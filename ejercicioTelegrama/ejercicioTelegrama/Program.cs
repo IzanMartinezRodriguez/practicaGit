@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o'; //Primer cambio dev2
             int numPalabras = 0;
             double coste;
 
@@ -33,7 +33,8 @@ namespace WindowsFormsApp1
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
             //Obtengo el número de palabras que forma el telegrama 
-            numPalabras = textoTelegrama.Length;
+            char[] chars = { ' ', '.', ',', ';', ':', '?', '\n', '\r' }; // SOLUCIONADO POR
+			numPalabras = textoTelegrama.Split(chars).Count;			 // USUARIO 1
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
